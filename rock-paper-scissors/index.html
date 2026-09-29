@@ -3,38 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock paper scissors game</title>
+    <title>Rock Paper Scissors Game | Win 5 to Unlock Surprise!</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
+        <!-- Surprise Tracker Banner -->
+        <div class="surprise-tracker" id="surpriseTracker">
+            <span class="tracker-icon">🎁</span>
+            <span class="tracker-text">Special Birthday Surprise Unlocks at <strong>5 Wins</strong>!</span>
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill" id="progressFill" style="width: 0%;"></div>
+            </div>
+            <span class="tracker-score" id="trackerScore">0/5 Wins</span>
+        </div>
+
         <h1>Rock Paper and Scissors</h1>
-    <div class="choices">
-        <div class="choice" id="rock">
-            <img src=".\images\rock.gif" alt="" id="Rock">
+        
+        <div class="choices">
+            <div class="choice" id="rock">
+                <img src="./images/Rock.gif" alt="Rock" id="Rock">
+                <span class="choice-label">Rock ✊</span>
+            </div>
+            <div class="choice" id="paper">
+                <img src="./images/Paper.gif" alt="Paper" id="Paper">
+                <span class="choice-label">Paper ✋</span>
+            </div>
+            <div class="choice" id="scissors">
+                <img src="./images/Scissors.gif" alt="Scissors" id="Scissors">
+                <span class="choice-label">Scissors ✌️</span>
+            </div>
         </div>
-         <div class="choice" id="paper">
-            <img src=".\images\paper.gif" alt="" id="Paper">
+
+        <div class="scores">
+            <div class="score">
+                <p id="userScore">0</p>
+                <p id="user">User Score 👤</p>
+            </div>
+            <div class="score">
+                <p id="compScore">0</p>
+                <p id="comp">Comp Score 💻</p>
+            </div>
         </div>
-         <div class="choice" id="scissors">
-            <img src=".\images\scissors.gif" alt="" id="Scissors">
+
+        <div class="result">
+            <p id="result">Place your move to start!</p>
+            <button id="resetBtn"><i class="fa-solid fa-rotate-right"></i> Reset</button>
         </div>
     </div>
-    <div class="scores">
-        <div class="score">
-             <p id="userScore">0</p>
-             <p id="user">UserScore</p>
+
+    <!-- Unlock Celebration Modal -->
+    <div id="unlockModal" class="modal-overlay hidden">
+        <div class="unlock-card">
+            <div class="unlock-icon">🎁🎂🎉</div>
+            <h2>5 WINS ACHIEVED!</h2>
+            <p class="unlock-subtitle">You have unlocked Dii's Birthday Special Celebration!</p>
+            <div class="countdown-box">
+                Redirecting in <span id="countdown">3</span> seconds...
+            </div>
+            <div class="modal-actions">
+                <a href="../Dii's%20birthday/index.html" class="unlock-btn" id="directLaunchBtn">
+                    <i class="fa-solid fa-cake-candles"></i> Open Dii's Birthday Website Now! 🎂
+                </a>
+            </div>
         </div>
-        <div class="score">
-            <p id="compScore">0</p>
-            <p id="comp">CompScore</p>
-        </div>
     </div>
-    <div class="result">
-        <p id="result">Place your move</p>
-        <button id="resetBtn">Reset</button>
-    </div>
-    </div>
+
+    <!-- Canvas Confetti & Script -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
