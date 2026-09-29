@@ -11,6 +11,24 @@ const trackerScore = document.getElementById("trackerScore");
 const unlockModal = document.getElementById("unlockModal");
 const countdownElem = document.getElementById("countdown");
 
+// Dynamically compute relative path based on location
+const getTargetBirthdayUrl = () => {
+    const pathname = window.location.pathname;
+    // If page is loaded from inside /rock-paper-scissors/ subfolder
+    if (pathname.includes('/rock-paper-scissors/')) {
+        return "../Dii-birthday/index.html";
+    }
+    // If page is loaded from root / or /index.html
+    return "./Dii-birthday/index.html";
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+    const directBtn = document.getElementById("directLaunchBtn");
+    if (directBtn) {
+        directBtn.href = encodeURI(getTargetBirthdayUrl());
+    }
+});
+
 const generateComputerScore = () => {
     const choiceList = ['rock', 'paper', 'scissors'];
     const randomIndex = Math.floor(Math.random() * 3);
@@ -18,23 +36,21 @@ const generateComputerScore = () => {
 };
 
 const updateProgress = () => {
-    userScoreElem.innerText = userScore;
-    compScoreElem.innerText = compScore;
+    if (userScoreElem) userScoreElem.innerText = userScore;
+    if (compScoreElem) compScoreElem.innerText = compScore;
     
-    // Calculate progress percentage up to 100%
     const pct = Math.min(100, Math.round((userScore / WIN_TARGET) * 100));
-    progressFill.style.width = `${pct}%`;
-    trackerScore.innerText = `${userScore}/${WIN_TARGET} Wins`;
+    if (progressFill) progressFill.style.width = `${pct}%`;
+    if (trackerScore) trackerScore.innerText = `${userScore}/${WIN_TARGET} Wins`;
 };
 
 const reset = () => {
     userScore = 0;
     compScore = 0;
     updateProgress();
-    resultElem.innerText = "Place your move";
+    if (resultElem) resultElem.innerText = "Place your move";
 };
 
-// Web Audio API Synthesizer Fanfare
 const playFanfareSound = () => {
     try {
         const AudioCtx = window.AudioContext || window.webkitAudioContext;
@@ -62,7 +78,6 @@ const playFanfareSound = () => {
 };
 
 const triggerBirthdayUnlock = () => {
-    // Fire celebration fanfare & confetti
     playFanfareSound();
     
     if (typeof confetti === "function") {
@@ -87,26 +102,22 @@ const triggerBirthdayUnlock = () => {
         }, 300);
     }
 
-    // Display modal
-    unlockModal.classList.remove("hidden");
+    if (unlockModal) unlockModal.classList.remove("hidden");
 
-    // Start 3 second countdown redirect
+    const targetUrl = getTargetBirthdayUrl();
+    const directBtn = document.getElementById("directLaunchBtn");
+    if (directBtn) directBtn.href = encodeURI(targetUrl);
+
     let timeLeft = 3;
-    countdownElem.innerText = timeLeft;
-
-    const navigateToBirthday = () => {
-        // Encoded path works both locally & on GitHub Pages
-        const targetUrl = encodeURI("../Dii's birthday/index.html");
-        window.location.href = targetUrl;
-    };
+    if (countdownElem) countdownElem.innerText = timeLeft;
 
     const timer = setInterval(() => {
         timeLeft--;
         if (timeLeft > 0) {
-            countdownElem.innerText = timeLeft;
+            if (countdownElem) countdownElem.innerText = timeLeft;
         } else {
             clearInterval(timer);
-            navigateToBirthday();
+            window.location.href = encodeURI(targetUrl);
         }
     }, 1000);
 };
@@ -115,9 +126,8 @@ const playGame = (userChoice) => {
     const computerChoice = generateComputerScore();
 
     if (userChoice === computerChoice) {
-        resultElem.innerHTML = `Draw! Both chose <strong>${userChoice}</strong> 🤝`;
+        if (resultElem) resultElem.innerHTML = `Draw! Both chose <strong>${userChoice}</strong> 🤝`;
     } else {
-        // Correct win conditions check for "rock", "paper", "scissors"
         const isUserWin = 
             (userChoice === "rock" && computerChoice === "scissors") ||
             (userChoice === "paper" && computerChoice === "rock") ||
@@ -125,16 +135,15 @@ const playGame = (userChoice) => {
 
         if (isUserWin) {
             userScore++;
-            resultElem.innerHTML = `You chose <strong>${userChoice}</strong> & Computer chose <strong>${computerChoice}</strong>. <strong>You Win! 🎉</strong>`;
+            if (resultElem) resultElem.innerHTML = `You chose <strong>${userChoice}</strong> & Computer chose <strong>${computerChoice}</strong>. <strong>You Win! 🎉</strong>`;
         } else {
             compScore++;
-            resultElem.innerHTML = `You chose <strong>${userChoice}</strong> & Computer chose <strong>${computerChoice}</strong>. <strong>Computer Wins! 💻</strong>`;
+            if (resultElem) resultElem.innerHTML = `You chose <strong>${userChoice}</strong> & Computer chose <strong>${computerChoice}</strong>. <strong>Computer Wins! 💻</strong>`;
         }
     }
 
     updateProgress();
 
-    // Trigger birthday execution after 5 wins!
     if (userScore >= WIN_TARGET) {
         setTimeout(() => {
             triggerBirthdayUnlock();
@@ -142,9 +151,12 @@ const playGame = (userChoice) => {
     }
 };
 
-document.getElementById("resetBtn").addEventListener("click", () => {
-    reset();
-});
+const resetBtn = document.getElementById("resetBtn");
+if (resetBtn) {
+    resetBtn.addEventListener("click", () => {
+        reset();
+    });
+}
 
 choices.forEach((choice) => {
     choice.addEventListener("click", () => {
