@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+     font-family: 'Courier New', Courier, monospace;
+}
+h1{
+   text-align: center;
+   background-color: aqua;
+   height: 3rem;
+   line-height: 3rem;
+}
+.container{
+    display:flex;
+    flex-direction: column;
+    gap:2rem;
+}
+.choices{
+    display:flex;
+    justify-content: center;
+    gap:5rem;
+}
+
+#Rock, #Paper, #Scissors{
+    width:10rem;
+    height:10rem;
+    object-fit:contain
+}
+#Scissors{
+    transform:rotate(262deg);
+}
+
+#Paper{
+    transform:rotate(-45deg);
+    margin:1.5rem;
+}
+
+:hover.choice{
+   opacity: .25;
+   cursor: pointer;
+}
+.choice{
+    border-radius: 50%;
+}
+
+.scores{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+}
+.score{
+    text-align: center;
+}
+
+#compScore, #userScore{
+    font-size: 3rem;
+}
+.result{
+    display:flex;
+    justify-content: center;
+}
+
+#result{
+    display:inline;
+    background-color: blanchedalmond;
+    font-weight: 600;
+    font-size: 1.5rem;
+    padding: 1rem;
+    border-radius: 1.5rem;
+}
+
+#resetBtn{
+    padding: 1rem;
+    border-radius: 1rem;
+    border: none;
+    background-color: black;
+    color: white;
+    margin-left: 3rem;
+}

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Dii! 🎉 | Special Birthday Celebration</title>
+    <meta name="description" content="A special birthday website dedicated to the best sister in the world! Happy Birthday Dii!">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+    <!-- Background Particle Canvas -->
+    <canvas id="particleCanvas"></canvas>
+    
+    <!-- Floating Audio & Control Bar -->
+    <header class="top-bar">
+        <div class="logo">
+            <span class="logo-sparkle">✨</span> Dii's Day <span class="badge-tag">VIP Sister</span>
+        </div>
+        <nav class="nav-links">
+            <a href="#hero"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="#cake-section"><i class="fa-solid fa-cake-candles"></i> Cake</a>
+            <a href="#memories"><i class="fa-solid fa-camera-retro"></i> Memories</a>
+            <a href="#surprises"><i class="fa-solid fa-gift"></i> Surprises</a>
+            <a href="#wishes"><i class="fa-solid fa-heart"></i> Wishes</a>
+        </nav>
+        <button id="musicToggle" class="sound-btn" aria-label="Toggle Birthday Song">
+            <i class="fa-solid fa-music"></i>
+            <span id="musicText">Play Song 🎵</span>
+        </button>
+    </header>
+
+    <!-- Main Container -->
+    <main class="app-container">
+
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <div class="crown-badge">
+                    <i class="fa-solid fa-crown"></i> Dedicated To The Best Sister Ever
+                </div>
+                <h1 class="main-title">
+                    Happy Birthday <span class="gradient-text glow-text">Dii!</span> 🎂
+                </h1>
+                <p class="subtitle">
+                    Sending you endless love, joy, laughter, and magical moments today and always! You bring so much light into our lives. ✨
+                </p>
+
+                <!-- Action CTA Buttons -->
+                <div class="cta-group">
+                    <button id="blowCandleBtn" class="btn btn-primary pulse-btn">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i> Make a Wish & Blow Candles
+                    </button>
+                    <button id="fireworksBtn" class="btn btn-secondary">
+                        <i class="fa-solid fa-fireworks"></i> Launch Fireworks 🎉
+                    </button>
+                    <button id="secretVaultBtn" class="btn btn-accent">
+                        <i class="fa-solid fa-key"></i> Sister's Secret Note 💌
+                    </button>
+                </div>
+
+                <!-- Sister Birthday Stats Counter -->
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <span class="stat-num" id="statHugs">100,000+</span>
+                        <span class="stat-label">Warm Hugs</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-num">∞</span>
+                        <span class="stat-label">Unconditional Love</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-num">#1</span>
+                        <span class="stat-label">Sister in the World</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Birthday Cake & Interactive Candle Section -->
+        <section id="cake-section" class="cake-section">
+            <div class="section-header">
+                <span class="section-subtitle">Make A Wish</span>
+                <h2 class="section-title">Virtual Birthday Cake 🎂</h2>
+                <p class="section-desc">Click the cake or the magic button to blow out candles, light up fireworks, and trigger the birthday celebration!</p>
+            </div>
+
+            <div class="cake-wrapper" id="cakeWrapper">
+                <!-- Cake Backdrop Glow -->
+                <div class="cake-glow"></div>
+                <img src="birthday_cake.jpg" alt="Birthday Cake for Dii" class="cake-image" id="cakeImage">
+                
+                <!-- Interactive Flames Overlay -->
+                <div class="candles-overlay" id="candlesOverlay">
+                    <div class="flame flame-1"></div>
+                    <div class="flame flame-2"></div>
+                    <div class="flame flame-3"></div>
+                    <div class="flame flame-4"></div>
+                    <div class="flame flame-5"></div>
+                    <div class="flame flame-6"></div>
+                </div>
+
+                <!-- Cake Interactive Tooltip -->
+                <div class="cake-banner" id="cakeBanner">
+                    <i class="fa-solid fa-sparkles"></i> Candles are glowing! Click to Blow! <i class="fa-solid fa-sparkles"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Memories Polaroid Gallery Section -->
+        <section id="memories" class="memories-section">
+            <div class="section-header">
+                <span class="section-subtitle">Precious Moments</span>
+                <h2 class="section-title">Sister's Photo Gallery 📸</h2>
+                <p class="section-desc">Snapshots of wonderful memories, smiles, and unbreakable bonds.</p>
+            </div>
+
+            <div class="polaroid-grid">
+                <!-- Polaroid 1 -->
+                <div class="polaroid-card" data-img="dp.jpg" data-caption="The Icon & Sunshine 👑 - Always lighting up the room with that gorgeous smile!">
+                    <div class="polaroid-tape"></div>
+                    <div class="polaroid-frame">
+                        <img src="dp.jpg" alt="Dii Photo 1" class="polaroid-img">
+                    </div>
+                    <div class="polaroid-caption">
+                        <span class="handwriting">The Icon & Sunshine 👑</span>
+                        <p class="polaroid-sub">Spreading warmth & happiness!</p>
+                    </div>
+                </div>
+
+                <!-- Polaroid 2 -->
+                <div class="polaroid-card" data-img="Snapchat-119403809.jpg" data-caption="Candid Joy & Laughter 😄 - Moments filled with fun memories and endless laughs!">
+                    <div class="polaroid-tape"></div>
+                    <div class="polaroid-frame">
+                        <img src="Snapchat-119403809.jpg" alt="Dii Photo 2" class="polaroid-img">
+                    </div>
+                    <div class="polaroid-caption">
+                        <span class="handwriting">Candid Joy & Laughter 😄</span>
+                        <p class="polaroid-sub">Making every moment fun!</p>
+                    </div>
+                </div>
+
+                <!-- Polaroid 3 -->
+                <div class="polaroid-card" data-img="Snapchat-467379717.jpg" data-caption="Best Sister Forever 💕 - Partners in crime, secret keepers, and lifelong best friends!">
+                    <div class="polaroid-tape"></div>
+                    <div class="polaroid-frame">
+                        <img src="Snapchat-467379717.jpg" alt="Dii Photo 3" class="polaroid-img">
+                    </div>
+                    <div class="polaroid-caption">
+                        <span class="handwriting">Best Sister Forever 💕</span>
+                        <p class="polaroid-sub">Always by each other's side!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sister Awards & Badges Section -->
+        <section class="awards-section">
+            <div class="section-header">
+                <span class="section-subtitle">Official Recognition</span>
+                <h2 class="section-title">Sister Hall of Fame 🏆</h2>
+                <p class="section-desc">Hover over or tap the award badges to view official certifications!</p>
+            </div>
+
+            <div class="awards-grid">
+                <div class="award-card">
+                    <div class="award-icon"><i class="fa-solid fa-user-shield"></i></div>
+                    <h3>Top Secret Keeper</h3>
+                    <p>Certified 100% vault security for all personal secrets & gossip!</p>
+                </div>
+                <div class="award-card">
+                    <div class="award-icon"><i class="fa-solid fa-shirt"></i></div>
+                    <h3>Style & Vibe Master</h3>
+                    <p>Awarded for having the best fashion sense & giving top tier advice.</p>
+                </div>
+                <div class="award-card">
+                    <div class="award-icon"><i class="fa-solid fa-pizza-slice"></i></div>
+                    <h3>Midnight Snack Partner</h3>
+                    <p>Always ready for late night cravings and snack raiding expeditions!</p>
+                </div>
+                <div class="award-card">
+                    <div class="award-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <h3>Most Caring Heart</h3>
+                    <p>Constantly checking up on everyone and making life sweeter.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Surprise Gift Boxes Section -->
+        <section id="surprises" class="surprises-section">
+            <div class="section-header">
+                <span class="section-subtitle">Unwrap Your Gifts</span>
+                <h2 class="section-title">Sister's Surprise Vault 🎁</h2>
+                <p class="section-desc">Click on any gift box below to unwrap your special birthday coupons!</p>
+            </div>
+
+            <div class="gift-grid">
+                <!-- Gift 1 -->
+                <div class="gift-box" id="gift1">
+                    <div class="gift-ribbon"></div>
+                    <div class="gift-content">
+                        <i class="fa-solid fa-gift gift-icon"></i>
+                        <h3>Gift Box #1</h3>
+                        <p class="gift-prompt">Click to Open!</p>
+                    </div>
+                    <div class="gift-opened-card">
+                        <span class="coupon-badge">VIP COUPON</span>
+                        <h4>10x Unlimited Warm Hugs & Coffee ☕</h4>
+                        <p>Redeemable anytime with zero expiration date!</p>
+                    </div>
+                </div>
+
+                <!-- Gift 2 -->
+                <div class="gift-box" id="gift2">
+                    <div class="gift-ribbon"></div>
+                    <div class="gift-content">
+                        <i class="fa-solid fa-box-open gift-icon"></i>
+                        <h3>Gift Box #2</h3>
+                        <p class="gift-prompt">Click to Open!</p>
+                    </div>
+                    <div class="gift-opened-card">
+                        <span class="coupon-badge">GOLDEN CARD</span>
+                        <h4>Argument Victory Pass 🏆</h4>
+                        <p>Automatically win any friendly debate instantly for 1 week!</p>
+                    </div>
+                </div>
+
+                <!-- Gift 3 -->
+                <div class="gift-box" id="gift3">
+                    <div class="gift-ribbon"></div>
+                    <div class="gift-content">
+                        <i class="fa-solid fa-cake-candles gift-icon"></i>
+                        <h3>Gift Box #3</h3>
+                        <p class="gift-prompt">Click to Open!</p>
+                    </div>
+                    <div class="gift-opened-card">
+                        <span class="coupon-badge">TREAT PASS</span>
+                        <h4>Free Boba & Favorite Treat 🧋</h4>
+                        <p>Treat on me whenever you want a sweet drink or snack!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Wish Jar & Message Wall -->
+        <section id="wishes" class="wishes-section">
+            <div class="section-header">
+                <span class="section-subtitle">Love & Blessings</span>
+                <h2 class="section-title">Birthday Wish Wall 💌</h2>
+                <p class="section-desc">Leave a custom birthday wish for Dii or generate a sweet card!</p>
+            </div>
+
+            <div class="wishes-container">
+                <!-- Add Wish Form -->
+                <div class="wish-form-card">
+                    <h3><i class="fa-solid fa-pen-nib"></i> Write a Wish for Dii</h3>
+                    <form id="wishForm">
+                        <div class="form-group">
+                            <label for="senderName">Your Name / Nickname</label>
+                            <input type="text" id="senderName" placeholder="e.g. Your Loving Brother / Friend" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="wishMessage">Your Birthday Message</label>
+                            <textarea id="wishMessage" rows="4" placeholder="Write something sweet, funny, or inspirational..." required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Pick a Badge Emoji</label>
+                            <div class="emoji-picker" id="emojiPicker">
+                                <span class="emoji-opt active" data-emoji="💖">💖</span>
+                                <span class="emoji-opt" data-emoji="👑">👑</span>
+                                <span class="emoji-opt" data-emoji="🎉">🎉</span>
+                                <span class="emoji-opt" data-emoji="🌟">🌟</span>
+                                <span class="emoji-opt" data-emoji="💐">💐</span>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary full-width">
+                            <i class="fa-solid fa-paper-plane"></i> Post Birthday Wish ✨
+                        </button>
+                    </form>
+
+                    <div class="magic-generator-box">
+                        <p>Need inspiration?</p>
+                        <button id="randomWishBtn" class="btn btn-outline small-btn">
+                            <i class="fa-solid fa-dice"></i> Generate Compliment ✨
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Wishes Feed -->
+                <div class="wishes-feed-wrapper">
+                    <h3><i class="fa-solid fa-envelope-open-text"></i> Messages in the Wish Jar</h3>
+                    <div class="wishes-grid" id="wishesGrid">
+                        <!-- Wishes will be rendered dynamically here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sister Quiz Section -->
+        <section class="quiz-section">
+            <div class="section-header">
+                <span class="section-subtitle">Fun Mini Game</span>
+                <h2 class="section-title">The Sister Trivia Quiz 🧩</h2>
+                <p class="section-desc">Test how well you know Dii!</p>
+            </div>
+
+            <div class="quiz-card" id="quizCard">
+                <div id="quizContent">
+                    <div class="quiz-progress">Question <span id="qNum">1</span> of 3</div>
+                    <h3 id="quizQuestion" class="quiz-q">What is Dii's top superpower?</h3>
+                    <div class="quiz-options" id="quizOptions">
+                        <!-- Options populated via JavaScript -->
+                    </div>
+                </div>
+                <div id="quizResult" class="quiz-result hidden">
+                    <i class="fa-solid fa-trophy quiz-trophy"></i>
+                    <h3>Quiz Completed! 🎉</h3>
+                    <p id="quizScoreText">You got 3 out of 3 correct!</p>
+                    <button id="restartQuizBtn" class="btn btn-primary"><i class="fa-solid fa-rotate-right"></i> Play Again</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Lightbox Modal for Photos -->
+    <div id="lightboxModal" class="modal hidden">
+        <span class="modal-close" id="modalClose">&times;</span>
+        <div class="modal-content">
+            <img id="lightboxImg" src="" alt="Enlarged photo">
+            <p id="lightboxCaption" class="modal-caption"></p>
+        </div>
+    </div>
+
+    <!-- Heartfelt Letter Modal -->
+    <div id="letterModal" class="modal hidden">
+        <div class="letter-card">
+            <span class="modal-close" id="letterClose">&times;</span>
+            <div class="letter-header">
+                <i class="fa-solid fa-envelope-heart letter-icon"></i>
+                <h2>Dear Dii 💕</h2>
+            </div>
+            <div class="letter-body">
+                <p>Happy Birthday to the sister who brings sunshine, laughter, and unconditional support into every single day!</p>
+                <p>Thank you for being my secret keeper, my comedy partner, my guide, and my best friend. Life is infinitely brighter, happier, and more fun because you are in it.</p>
+                <p>May this year bring you endless happiness, success in all your goals, great health, tasty food, and every dream your heart desires!</p>
+                <p class="letter-signature">With lots of love & warm wishes,<br><strong>Your Brother & Family ❤️</strong></p>
+            </div>
+            <button class="btn btn-primary" id="letterDismissBtn">Close & Celebrate 🎉</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <p>Made with ❤️ specially for <strong>Dii</strong>'s Birthday Celebration ✨</p>
+        <p class="copyright">Happy Birthday • Enjoy Your Special Day! 🎂🎉</p>
+    </footer>
+
+    <!-- Canvas Confetti & Script -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
